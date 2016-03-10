@@ -3,50 +3,26 @@ h2= title
 
 style.
     h1 {color: blue}
-    h2 {background: red}
+    h2 {color: green}
+    
+- var followerCount = 7;
 
-script.
-    if(10 === 10){
-        alert('10 is equal to 10');
-    }
+- if(followerCount === 0){
+    p You have no followers.
+- }else if(followerCount === 1){
+    p You have one followers.
+- }else{
+    p You have #{followerCount} followers.
+- }
 
-- var fname = "Asim";
-- var lname = "<b>Zahid</b>";
-- var fn = function(){ return "Hello, Express" };
 
-ul#animals
-    li.bakri One
-    li#lelii Two
-    li.peduu Three
-    li.maajj#gaaannn Four
-    li #{fname}
-    li #{1+2}
-    li #{lname}
-    li !{lname}
-    li #{fn}
-    li= fn()
-        a(href='https://www.google.com.pk')  Open google.com.pk in currunt tab
-    li= fn()
-        a(href='https://www.google.com.pk', target='_blank')  Open google.com.pk in new tab
-    li
-        h4 Image
-            img(src='./views/legend.jpg')
-    li
-        h4 Image
-            img(src='./views/legend.jpg', alt='Khuram Manzoor picture of run out')
-        
-p I want to put alot of text here ......
+
+// use pipe symbol to logout select which you are comfortable with..
 
 p
-    |I want
-    |to put
-    |alot of 
-    |text here
-    |......
-    
-p.
-    I want
-    to put
-    alot of
-    text here
-    .....
+    if followerCount == 0
+        |   You have no followers.
+    else if followerCount == 1
+        |   You have one follower.
+    else
+        |   You have #{followerCount} followers.
