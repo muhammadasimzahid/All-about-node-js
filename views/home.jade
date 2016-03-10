@@ -4,25 +4,26 @@ h2= title
 style.
     h1 {color: blue}
     h2 {color: green}
-    
+    h3 {color: red}
+
 - var followerCount = 7;
-
-- if(followerCount === 0){
-    p You have no followers.
-- }else if(followerCount === 1){
-    p You have one followers.
-- }else{
-    p You have #{followerCount} followers.
-- }
-
-
-
-// use pipe symbol to logout select which you are comfortable with..
 
 p
     if followerCount == 0
         |   You have no followers.
     else if followerCount == 1
         |   You have one follower.
-    else
+    else 
         |   You have #{followerCount} followers.
+
+- var users = [{name: 'Asim', email: 'asim@gmail.com'}, {name: 'Ahsan', email: 'ahsan@gmail.com'}, {name: 'Qasim', email: 'qasim@gmail.com'}];
+
+h3 All the users with "Name" and Email "Addressess" :
+
+ul
+    each user, i in users
+        li #{i+1} : #{user.name} &lt;#{user.email}&gt;
+
+- var numbers = [1,2,3,4,5,6,7];
+each number, i in numbers
+    h2 #{ i + 1 } #{number}
