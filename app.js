@@ -5,7 +5,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.json());
 
 app.get('/', function(req, res){
-    res.render('home.jade', { title: "Passing data from res.render() function to home.jade file." });
+    res.render('home.jade', { title: "Having fun with Express." });
 });
 
 app.listen(app.get('port'), function(){
