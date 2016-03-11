@@ -10,8 +10,6 @@ style.
 
 h3 All the users with "Name" and Email "Addressess" :
 
-include mixin
-
 ul
-    each user in users
-        mixin userInLiTag(user)
+    each userSingle in users
+        include user
