@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 var app = express();
 
@@ -10,18 +10,24 @@ app.set('view engine', 'jade');
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
-app.use(cookieParser());
+app.use(session({ 
+    secret: 'this is secret used for security purpose',
+    resave: true,
+    saveUninitialized: true
+}));
 
 app.get('/name', function(req, res){
-    res.send('Your saved name is : <h2>' + req.cookies.name + '!</h2>');
+    res.send(req.session.name);// through session
 });
 
 app.get('/name/:name', function(req, res){
-    res.cookie('name', req.params.name/*, {maxAge: 9000}*/).send('To check the set cookie <a href="/name">Get set Name .</a>');
+    req.session.name = req.params.name; //set through session
+    res.send('Set');
 });
 
 app.get('/clear', function(req, res){
-    res.clearCookie('name').send(req.cookies.name);
+    req.session.destroy();
+    res.send('Destroyed');
 })
 
 
