@@ -9,22 +9,28 @@ app.set('view engine', 'jade');
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req, res){
-    //res.send(404, 'Hello, Express and I am new to express.');
-    //res.render('layout');
-    //res.json({name: "Muhammad Asim Zahid"});
-    //res.type('image/png').send('this is a picture.');
-    //res.format({
-    //    html: function () { res.send('<h1>Hello, Express!</h1>'); },
-    //    json: function () { res.json({message: 'Hello, Express!'}); },
-    //    text: function () { res.send('Hello, Express!'); }
-    //});
-    res.send('Hello, Express!');
+var users = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J' ];
+
+app.param('from', function(req, res, next, from){
+    req.from = parseInt(from, 10);
+    next();
 });
 
-//app.get('/user', function(req, res){
-//    res.redirect('/');
-//});
+app.param('to', function(req, res, next, to){
+    req.to = parseInt(to, 10);
+    next();
+});
+
+app.get('/users/:from-:to', function(req, res){
+    //how to access R.P.P ??? down bellow : 
+    res.json(users.slice(req.from, req.to + 1));
+    
+    //when you are not using Route Parameter Predefined.
+    //var from = parseInt(req.params.from, 10);
+    //var to = parseInt(req.params.to, 10);
+    //res.send(users.slice(from, to + 1));
+    
+});
 
 app.listen(app.get('port'), function(){
     console.log('Express server listening on Port : ' + app.get('port'));
