@@ -1,9 +1,6 @@
 h1 Hello Express
 h2= title
 
-mixin userInLiTag(user)
-    li #{user.name} &lt;#{user.email}&gt;
-
 style.
     h1 {color: blue}
     h2 {color: green}
@@ -12,6 +9,8 @@ style.
 - var users = [{name: 'Asim', email: 'asim@gmail.com'}, {name: 'Ahsan', email: 'ahsan@gmail.com'}, {name: 'Qasim', email: 'qasim@gmail.com'}];
 
 h3 All the users with "Name" and Email "Addressess" :
+
+include mixin
 
 ul
     each user in users
