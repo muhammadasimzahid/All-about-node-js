@@ -1,0 +1,18 @@
+h1 All Users 
+    a(href="/users/new") (Create New User : )
+
+style.
+    b{color: blue}
+    button{color: red}
+
+ul
+    each user in users
+        b 
+            li #{user.name}
+                &nbsp;&nbsp;&nbsp;
+                a(href="/users/#{user.name}") View
+                &nbsp;&nbsp;&nbsp;
+                a(href="/users/#{user.name}/edit") Edit
+                &nbsp;&nbsp;&nbsp;
+                form(action="users/#{user.name}?_method=DELETE", method="post")
+                        button(type="submit") Delete
