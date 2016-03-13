@@ -13,17 +13,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
-
-
-
 mongoose.connect('mongodb://localhost/helloExpress');
-
 var UserSchema = new mongoose.Schema({
     name: String,
     email: String,
     age: Number
 });
-
 var Users = mongoose.model('Users', UserSchema);
 
 
@@ -92,17 +87,6 @@ app.delete('/users/:name', function(req, res){
         res.redirect('/users');
     });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 app.listen(app.get('port'), function(){
     console.log('Express server listening on Port : ' + app.get('port'));
