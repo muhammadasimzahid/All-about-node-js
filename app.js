@@ -13,15 +13,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
-mongoose.connect('mongodb://localhost/helloExpress');
+//mongoose.connect('mongodb://localhost/helloExpress');
+mongoose.connect('mongodb://asim:password123@ds015289.mlab.com:15289/myfirstapp');
+
+
 var UserSchema = new mongoose.Schema({
     name: String,
     email: String,
     age: Number
 });
+
 var Users = mongoose.model('Users', UserSchema);
 
-
+app.get('/', function(req, res){
+    res.render('users/main');
+});
 //show all users
 app.get('/users', function(req, res){
     Users.find({}, function(err, docs){
