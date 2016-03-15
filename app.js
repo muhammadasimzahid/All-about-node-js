@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/public'));
 
 //mongoose.connect('mongodb://localhost/helloExpress');
-mongoose.connect('mongodb://asim:password123@ds015289.mlab.com:15289/myfirstapp');
+//mongoose.connect('mongodb://asim:password123@ds015289.mlab.com:15289/myfirstapp');
 
 
 var UserSchema = new mongoose.Schema({
